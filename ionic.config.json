@@ -1,0 +1,7 @@
+{
+  "name": "cipherkeep",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
