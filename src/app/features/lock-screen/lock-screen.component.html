@@ -1,0 +1,23 @@
+<ion-content class="ion-padding ion-text-center">
+  <div class="lock-container">
+    <ion-icon name="lock-closed-outline" color="primary" size="large"></ion-icon>
+    <h2>CipherKeep Locked</h2>
+    <p>Please authenticate to access your vault.</p>
+
+    <ion-button expand="block" (click)="unlockVault()">
+      <ion-icon slot="start" name="finger-print-outline"></ion-icon>
+      Unlock with Biometrics
+    </ion-button>
+
+    @if(biometricError){
+      <div class="error-state-fallback">
+        <p class="error-text">Biometrics unavailable.</p>
+        <ion-button expand="block" fill="outline" (click)="useFallbackPin()">
+          Use PIN
+        </ion-button>
+      </div>
+    }@else {
+
+    }
+  </div>
+</ion-content>
