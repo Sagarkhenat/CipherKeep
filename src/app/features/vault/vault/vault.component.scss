@@ -1,0 +1,77 @@
+// Centered layout for when the vault has no stored secrets
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh; // Takes up the majority of the screen to truly center the text
+  color: var(--ion-color-medium);
+  text-align: center;
+  padding: 0 2rem;
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+  }
+}
+
+.sticky-searchbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  //background: var(--ion-background-color, #ffffff);
+
+  /* Added bottom padding for breathing room */
+  padding: 10px 16px 10px 16px;
+
+  /* Adds a subtle line to separate the sticky header from the scrolling list */
+  //border-bottom: 1px solid var(--ion-color-step-150, #e2e2e2);
+
+  ion-searchbar {
+    /* Remove default padding so it aligns perfectly inside our container */
+    padding: 0;
+
+    /* Gives the searchbar its own distinct background color */
+    /* Adapts perfectly to both Dark and Light modes */
+    --background: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08);
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Ensures text and icons contrast well with the new background */
+    /* Explicitly bind text and clear button colors to the active text color */
+    --color: var(--ion-text-color);
+    --clear-button-color: var(--ion-text-color);
+
+    --placeholder-color: var(--ion-color-medium);
+    --icon-color: var(--ion-color-medium);
+  }
+}
+
+// Styling the list items for a cleaner "Vault" aesthetic
+ion-item {
+  --padding-start: 1rem;
+  --inner-padding-end: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+    color: var(--ion-color-dark);
+  }
+
+  // Make the decrypted secret value look like a distinct string
+  p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    color: var(--ion-color-light-contrast);
+    background: var(--ion-color-light);
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+}
