@@ -1,0 +1,15 @@
+.password-display {
+  text-align: center;
+  margin-top: 3rem;
+
+  h2 {
+    font-family: 'Courier New', Courier, monospace;
+    background: var(--ion-color-light);
+    color: var(--ion-color-dark);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    word-break: break-all; // Ensures long passwords wrap nicely
+    letter-spacing: 2px;   // Makes the random characters easier to read
+  }
+}

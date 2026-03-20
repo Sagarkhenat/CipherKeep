@@ -1,3 +1,18 @@
-<p>
-  generator works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Generator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="password-display">
+
+    <h2>{{ generatedPassword }}</h2>
+
+    <ion-button expand="block" (click)="copyToClipboard()">
+      <ion-icon name="copy-outline" slot="start"></ion-icon>
+      Copy to Clipboard
+    </ion-button>
+
+  </div>
+</ion-content>

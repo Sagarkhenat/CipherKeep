@@ -1,3 +1,48 @@
-<p>
-  vault works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Secure Vault</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentAddSecretPrompt()">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    @if (secrets && secrets.length > 2) {
+      <div class="sticky-searchbar">
+        <ion-searchbar
+          placeholder="Search vault..."
+          [debounce]="250"
+          (ionInput)="handleSearch($event)">
+        </ion-searchbar>
+      </div>
+    }
+
+    <ion-list>
+      @for (secret of filteredSecrets; track secret.key) {
+        <ion-item>
+          <ion-label>
+            <h2>{{ secret.key }}</h2>
+            <p>{{ secret.value }}</p>
+          </ion-label>
+          <ion-button fill="clear" color="danger" (click)="deleteSecret(secret.key)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      }
+      @empty {
+        <div class="empty-state" style="text-align: center; margin-top: 2rem; color: var(--ion-color-medium);">
+          @if (secrets.length === 0) {
+            <p>No secrets stored yet. Tap '+' to add one.</p>
+          } @else {
+            <p>No results found matching your search.</p>
+          }
+        </div>
+      }
+    </ion-list>
+
+
+</ion-content>
