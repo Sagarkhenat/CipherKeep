@@ -1,0 +1,52 @@
+/* Ensure the host element takes up the full height */
+:host {
+  display: block;
+  height: 100%;
+}
+
+.lock-container {
+  /* Flexbox to center the content vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  /* Push content below the top status bar / notch */
+  padding-top: env(safe-area-inset-top, 20px);
+
+  /* Keep content above the bottom navigation / home gesture bar */
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+
+  /* Add standard side padding */
+  padding-left: env(safe-area-inset-left, 16px);
+  padding-right: env(safe-area-inset-right, 16px);
+}
+
+/* Fine-tune the alignment of the fingerprint icon */
+ion-button {
+  ion-icon[slot="start"] {
+    /* A slight vertical lift to align perfectly with the button text */
+    //transform: translateY(-1px);
+
+    /* Ensure there is a clean gap between the icon and the text */
+    margin-right: 10px;
+    margin-top: 15px;
+    font-size: 25px;
+  }
+}
+
+/* Add some spacing to the internal elements */
+.lock-container ion-icon {
+  margin-bottom: 16px;
+}
+
+.lock-container h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.lock-container p {
+  margin-bottom: 32px;
+  color: var(--ion-color-medium);
+}
