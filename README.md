@@ -19,7 +19,7 @@ A major focus of this project is resilient error handling and graceful degradati
 
 * **Fallback Authentication:** Implements a native PIN fallback system via Capacitor Preferences if biometric hardware is missing, disabled, or encounters permission denials.
 * **Corrupted Data Protection:** Wraps all keystore read/write operations in robust `try/catch` blocks. If decryption fails due to corrupted keychain data, the app alerts the user gracefully without crashing.
-* **Route Protection:** A functional Angular 17 Route Guard intercepts unauthorized navigation attempts to the internal tabs, ensuring the vault remains locked.
+* **Route Protection:** A functional Angular 17 Route Guard   intercepts unauthorized navigation attempts to the internal tabs, ensuring the vault remains locked.
 
 ## ✨ Recent Feature Additions (Phase 2)
 
@@ -45,8 +45,10 @@ Installation
 
 * **Clone and install dependencies**
 
-git clone https://github.com/yourusername/Cipherkeep.git
+git clone 'project_ssh/http_url'
+
 cd Cipherkeep
+
 npm install
 
 * **Run in browser (Note: Biometrics require a physical device)**
