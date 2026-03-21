@@ -4,14 +4,14 @@
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white)
 
-CipherKeep is a locally secured mobile application designed for storing sensitive text secrets. It shifts the focus from simple UI construction to robust, local security architecture by utilizing hardware-backed encryption and native biometric authentication.
+CipherKeep is a locally secured mobile application for storing sensitive text secrets. Unlike standard note-taking apps that rely on insecure localStorage, CipherKeep implements a hardware-backed security architecture to ensure data remains encrypted and inaccessible without biometric verification.
 
 ## 🏗 Tech Stack & Architecture
 
-* **Frontend:** Built with Angular 17 utilizing Standalone Components for a modular, modern structure.
+* **Frontend:** Architected entirely with Angular 17 Standalone Components for a modular, tree-shakeable codebase.
 * **State Management:** Angular Signals manage the global `isAuthenticated` state, providing a highly reactive and clean alternative to complex RxJS BehaviorSubjects.
-* **Biometric Security:** Integrates `@aparajita/capacitor-biometric-auth` to interface directly with iOS FaceID/TouchID and Android Biometrics.
-* **Hardware Encryption:** Utilizes `capacitor-secure-storage-plugin` to ensure all vaulted data is hardware-encrypted via the native OS security layers (iOS Keychain / Android Keystore) rather than vulnerable `localStorage`.
+* **Biometric Security Integration:** Integrates `@aparajita/capacitor-biometric-auth` to interface directly with iOS FaceID/TouchID and Android Biometrics.
+* **Hardware-Backed Security Encryption:** Utilizes `capacitor-secure-storage-plugin` to ensure all vaulted data is hardware-encrypted via the native OS security layers (iOS Keychain / Android Keystore) rather than vulnerable `localStorage`.
 
 ## 🛡️ Security Features & Edge Case Handling
 
@@ -23,13 +23,37 @@ A major focus of this project is resilient error handling and graceful degradati
 
 ## ✨ Recent Feature Additions (Phase 2)
 
-* **Offline Password Generator:** A utility tab featuring a secure, offline password generator. It utilizes the Web Cryptography API (`window.crypto.getRandomValues`) for client-side unpredictability.
+* **Cryptographically Secure Generation (Offline):** A utility tab featuring a secure, offline password generator. It utilizes the Web Cryptography API (`window.crypto.getRandomValues`) for client-side unpredictability.
 * **Clipboard Integration:** Integrate `@capacitor/clipboard` for easy copying of generated passwords natively.
-* **Adaptive Theming & UI:** Implement a sticky search bar with dynamic filtering, adaptive dark-mode styling, and smart empty states to prevent visual bleed-through.
 * **Settings & PIN Management:** Implement logic to update the fallback PIN directly through the device's preferences.
+* **The "Nuke" Feature (Full Local Wipe):** A critical security implementation in the Settings tab allows users to execute a Full Wipe. This destroys all secrets in the hardware keystore and clears local preferences, effectively resetting the app to a "zero-knowledge" state.
+  
+## 📱 Application Preview
 
-## 🚀 Running Locally
+Secure Lock Screen      Vault Management            Secure Generator
 
-```bash
+Biometric Prompt & PIN Fallback,  Hardware-Encrypted Secrets, CSPRNG Password Generation
+
+## 🚀 Getting Started
+
+Prerequisites
+Ionic CLI: npm install -g @ionic/cli
+
+Native Platforms: Xcode (iOS) or Android Studio (Android) are required for biometric testing.
+
+Installation
+
+* **Clone and install dependencies**
+
+git clone https://github.com/yourusername/Cipherkeep.git
+cd Cipherkeep
 npm install
+
+* **Run in browser (Note: Biometrics require a physical device)**
+
 ionic serve
+
+* **Sync to native platforms**
+
+npx cap sync
+npx cap open ios  # or android

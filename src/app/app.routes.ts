@@ -17,13 +17,4 @@ export const routes: Routes = [
     canActivate: [authGuard],
     loadChildren: () => import('./features/tabs/tabs.routes').then(m => m.routes)
   }
-  // {
-  //   path: 'tabs',
-  //   loadChildren: () => import('./features/tabs/tabs.routes').then((m) => m.routes),
-  // },
-  // {
-  //   path: '',
-  //   redirectTo: 'tabs',
-  //   pathMatch: 'full',
-  // },
 ];

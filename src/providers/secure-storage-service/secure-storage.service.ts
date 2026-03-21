@@ -4,6 +4,7 @@ import { SecureStoragePlugin } from 'capacitor-secure-storage-plugin';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SecureStorageService {
 
   constructor() { }

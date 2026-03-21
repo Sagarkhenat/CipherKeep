@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { IonContent, IonButton, IonIcon, AlertController } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { lockClosedOutline, fingerPrintOutline } from 'ionicons/icons';
-import { AuthService } from 'src/app/core/auth/auth.service';
+
+import { AuthService } from 'src/providers/providers';
 import { BiometricAuth } from '@aparajita/capacitor-biometric-auth';
 
 @Component({
