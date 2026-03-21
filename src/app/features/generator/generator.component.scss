@@ -1,15 +1,36 @@
 .password-display {
+  /* Uses Ionic's auto-adjusting background steps */
+  background: var(--ion-background-color-step-50, #f4f5f8);
+  border-radius: 12px;
+  padding: 24px 16px;
   text-align: center;
-  margin-top: 3rem;
+  margin-bottom: 24px;
+  /* Uses Ionic's auto-adjusting border color */
+  border: 1px solid var(--ion-border-color, #d7d8da);
 
-  h2 {
+  .generated-text {
     font-family: 'Courier New', Courier, monospace;
-    background: var(--ion-color-light);
-    color: var(--ion-color-dark);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    word-break: break-all; // Ensures long passwords wrap nicely
-    letter-spacing: 2px;   // Makes the random characters easier to read
+    font-size: 1.6rem;
+    font-weight: bold;
+    word-break: break-all;
+    margin: 0 0 20px 0;
+
+    /* This is the magic variable: flips to white in dark mode, black in light mode */
+    color: var(--ion-text-color);
+
+    min-height: 2.4rem;
+    letter-spacing: 2px;
   }
 }
+
+// Adaptive Dark Mode Styling
+// @media (prefers-color-scheme: dark) {
+//   .password-display {
+//     background: var(--ion-color-step-100, #1e2023);
+//     border-color: var(--ion-color-step-200, #2f3136);
+
+//     .generated-text {
+//       color: var(--ion-color-light);
+//     }
+//   }
+// }

@@ -19,12 +19,15 @@
 .sticky-searchbar {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 10; /* Ensures it stays visually above the scrolling list */
 
-  //background: var(--ion-background-color, #ffffff);
+  /* Forces a solid background that matches the app's current theme (light or dark) */
+  background: var(--ion-background-color);
 
   /* Added bottom padding for breathing room */
-  padding: 10px 16px 10px 16px;
+  //padding: 10px 16px 10px 16px;
+
+  padding-bottom:16px;
 
   /* Adds a subtle line to separate the sticky header from the scrolling list */
   //border-bottom: 1px solid var(--ion-color-step-150, #e2e2e2);

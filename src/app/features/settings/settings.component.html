@@ -1,3 +1,21 @@
-<p>
-  settings works!
-</p>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list lines="full" class="ion-margin-bottom">
+    <ion-list-header>
+      <ion-label>Security</ion-label>
+    </ion-list-header>
+
+    <ion-item button (click)="changePin()" detail="true">
+      <ion-icon slot="start" name="key-outline" color="primary"></ion-icon>
+      <ion-label>
+        <h2>Change Fallback PIN</h2>
+        <p>Update your backup access code</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
