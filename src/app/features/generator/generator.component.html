@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>Generator</ion-title>
   </ion-toolbar>
@@ -6,13 +6,64 @@
 
 <ion-content class="ion-padding">
   <div class="password-display">
-
-    <h2>{{ generatedPassword }}</h2>
+    <h2 class="generated-text">{{ generatedPassword() }}</h2>
 
     <ion-button expand="block" (click)="copyToClipboard()">
-      <ion-icon name="copy-outline" slot="start"></ion-icon>
-      Copy to Clipboard
+      <ion-icon slot="start" name="copy-outline"></ion-icon>
+      Copy Password
     </ion-button>
-
   </div>
+
+  <ion-list lines="full" class="ion-margin-top">
+    <ion-list-header>
+      <ion-label>Password Configuration</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label position="stacked">Length: {{ passwordLength() }}</ion-label>
+      <ion-range
+        min="4"
+        max="24"
+        [value]="passwordLength()"
+        (ionChange)="onLengthChange($event)">
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle
+        [checked]="useUppercase()"
+        (ionChange)="useUppercase.set($event.detail.checked); generatePassword()">
+        Uppercase (A-Z)
+      </ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle
+        [checked]="useLowercase()"
+        (ionChange)="useLowercase.set($event.detail.checked); generatePassword()">
+        Lowercase (a-z)
+      </ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle
+        [checked]="useNumbers()"
+        (ionChange)="useNumbers.set($event.detail.checked); generatePassword()">
+        Numbers (0-9)
+      </ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle
+        [checked]="useSymbols()"
+        (ionChange)="useSymbols.set($event.detail.checked); generatePassword()">
+        Symbols (!@#$)
+      </ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" fill="outline" (click)="generatePassword()" class="ion-margin-top">
+    <ion-icon slot="start" name="refresh-outline"></ion-icon>
+    Regenerate
+  </ion-button>
 </ion-content>

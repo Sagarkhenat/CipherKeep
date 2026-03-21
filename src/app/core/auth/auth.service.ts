@@ -37,6 +37,13 @@ export class AuthService {
     return value !== null;
   }
 
+  async savePin(pin: string): Promise<void> {
+    await Preferences.set({
+      key: 'fallback_pin',
+      value: pin
+    });
+  }
+
   async setPin(pin: string): Promise<void> {
     await Preferences.set({ key: this.PIN_KEY, value: pin });
   }
