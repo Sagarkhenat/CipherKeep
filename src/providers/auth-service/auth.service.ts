@@ -16,6 +16,18 @@ export class AuthService {
 
   constructor() {}
 
+  async isFirstRun(): Promise<boolean> {
+    const { value } = await Preferences.get({ key: 'hasSeenGuide' });
+    return value === null; // Returns true if the key doesn't exist yet
+  }
+
+  async markGuideAsSeen(): Promise<void> {
+    await Preferences.set({
+      key: 'hasSeenGuide',
+      value: 'true'
+    });
+  }
+
   /**
    * Unlocks the vault.
    * Later, this will only be called after a successful biometric hardware scan.
@@ -52,4 +64,26 @@ export class AuthService {
     const { value } = await Preferences.get({ key: this.PIN_KEY });
     return value === pin;
   }
+
+  /**
+   * Clears the fallback PIN and any other
+   * local metadata stored in Capacitor Preferences.
+   */
+  async clearCredentials(): Promise<void> {
+    try {
+      await Preferences.clear();
+    } catch (error) {
+      console.error('Failed to clear local preferences:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Resets the global authentication Signal
+   * to 'false', effectively locking the app.
+   */
+  logout(): void {
+    this.isAuthenticatedSignal.set(false);
+  }
+
 }

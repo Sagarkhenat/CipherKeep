@@ -8,7 +8,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'vault',
-        loadComponent: () => import('../vault/vault/vault.component').then((m) => m.VaultComponent),
+        loadComponent: () => import('../vault/vault.component').then((m) => m.VaultComponent),
       },
       {
         path: 'generator',

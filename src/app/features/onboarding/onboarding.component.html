@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>CipherKeep User Guide</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" color="primary" fill="clear">
+        Done
+    </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="welcome-header">
+    <ion-icon name="shield-checkmark-outline" color="primary" class="main-logo"></ion-icon>
+    <h1>Privacy First</h1>
+    <p>Your data never leaves this device. Here is how we keep it safe.</p>
+  </div>
+
+  <ion-list lines="none">
+    <ion-list-header class="ion-text-center">
+      <ion-label>Access & Authentication</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-icon slot="start" name="finger-print-outline" color="primary"></ion-icon>
+      <ion-label class="ion-text-wrap">
+        <h3>Biometric Lock</h3>
+        <p>Uses FaceID or TouchID to unlock your vault instantly.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="key-outline" color="primary"></ion-icon>
+      <ion-label class="ion-text-wrap">
+        <h3>PIN Fallback</h3>
+        <p>A secure 4-digit code acts as your backup if biometrics fail.</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-list-header class="ion-text-center">
+      <ion-label>Core Features</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-icon slot="start" name="flash-outline" color="success"></ion-icon>
+      <ion-label class="ion-text-wrap">
+        <h3>Secure Generator</h3>
+        <p>Creates unbreakable passwords using native device entropy.</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-list-header class="ion-text-center">
+      <ion-label color="danger">Emergency</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-icon slot="start" name="trash-outline" color="danger"></ion-icon>
+      <ion-label class="ion-text-wrap">
+        <h3>Full Local Wipe</h3>
+        <p>The "Nuke" button clears all data from the hardware keystore permanently.</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="footer-note">
+    <ion-text color="medium">
+      <small>Note: Since data is hardware-encrypted, deleting the app will lose all saved secrets.</small>
+    </ion-text>
+  </div>
+</ion-content>

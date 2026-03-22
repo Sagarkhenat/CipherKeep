@@ -5,6 +5,22 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  <ion-list lines="full">
+    <ion-list-header>
+      <ion-label>Support</ion-label>
+    </ion-list-header>
+
+    <ion-item button (click)="openUserGuide()" detail="true">
+      <ion-icon slot="start" name="help-circle-outline" color="secondary"></ion-icon>
+      <ion-label>
+        <h2>User Guide</h2>
+        <p>How CipherKeep protects your data</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
   <ion-list lines="full" class="ion-margin-bottom">
     <ion-list-header>
       <ion-label>Security</ion-label>
@@ -18,4 +34,20 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-list lines="full">
+    <ion-list-header>
+      <ion-label color="danger">Danger Zone</ion-label>
+    </ion-list-header>
+
+    <ion-item button (click)="triggerFullWipe()" detail="false" class="danger-item">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      <ion-label>
+        <h2>Full Local Wipe</h2>
+        <p>Delete all secrets and reset app</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
 </ion-content>

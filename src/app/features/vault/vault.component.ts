@@ -1,13 +1,15 @@
 import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlertController, ToastController } from '@ionic/angular';
-import { SecureStorageService } from 'src/app/core/storage/secure-storage.service';
+//import { SecureStorageService } from 'src/app/core/storage/secure-storage.service';
 import { SecureStoragePlugin } from 'capacitor-secure-storage-plugin';
 import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton,
-          IonIcon, IonContent, IonList, IonItem, IonLabel, IonSearchbar } from '@ionic/angular/standalone';
+          IonIcon, IonContent, IonList, IonItem, IonLabel, IonSearchbar,ModalController } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { addOutline, trashOutline } from 'ionicons/icons'
+import { addOutline, trashOutline } from 'ionicons/icons';
 
+import { AuthService,SecureStorageService } from 'src/providers/providers';
+import { OnboardingComponent } from '../onboarding/onboarding.component';
 @Component({
   selector: 'app-vault',
   templateUrl: './vault.component.html',
@@ -37,15 +39,39 @@ export class VaultComponent implements OnInit {
   constructor(
     private secureStorage: SecureStorageService,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private modalCtrl: ModalController,
+    private authService: AuthService
   ) {
 
     addIcons({ addOutline, trashOutline });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const firstRun = await this.authService.isFirstRun();
+    if (firstRun) {
+      this.presentUserGuide();
+    } else {
+
+    }
+
     this.loadSecrets();
   }
+
+  async presentUserGuide() {
+    const modal = await this.modalCtrl.create({
+      component: OnboardingComponent,
+      breakpoints: [0, 1], // Full screen or swipeable
+      initialBreakpoint: 1
+    });
+
+    await modal.present();
+
+    // Mark as seen once they close it
+    await modal.onDidDismiss();
+    await this.authService.markGuideAsSeen();
+  }
+
 
   async loadSecrets() {
     try {
