@@ -21,6 +21,25 @@ A major focus of this project is resilient error handling and graceful degradati
 * **Corrupted Data Protection:** Wraps all keystore read/write operations in robust `try/catch` blocks. If decryption fails due to corrupted keychain data, the app alerts the user gracefully without crashing.
 * **Route Protection:** A functional Angular 17 Route Guard   intercepts unauthorized navigation attempts to the internal tabs, ensuring the vault remains locked.
 
+### 🛠️ Proposed "Technical Challenges" Section
+
+## 🧠 Technical Challenges & Solutions
+
+### 1. Synchronizing Native Biometrics with Angular Signals
+
+  **The Challenge:** Interfacing asynchronous native hardware calls from `@aparajita/capacitor-biometric-auth` with Angular’s synchronous Signal-based state management.
+  **The Solution:** Engineered a custom `AuthService` that wraps native promises.  By utilizing a private `WritableSignal` and exposing a `computed` read-only Signal, I ensured the UI reactively updates across all tabs the moment the native hardware confirms a match.
+
+### 2. Graceful Degradation & Hardware Absence
+
+  **The Challenge:** Handling scenarios where a device lacks biometric hardware or the user denies permissions, which often causes mobile apps to hang or crash.
+  **The Solution:** Implemented a robust "Fallback Logic" engine.  Using `try/catch` blocks around the `isAvailable` checks, the app detects hardware failures and automatically triggers an Ionic `AlertController` to switch the user to the secure PIN override stored in `Capacitor Preferences`.
+
+### 3. Cryptographically Secure Randomness in a Web Environment
+
+  **The Challenge:** Standard JavaScript `Math.random()` is mathematically predictable and unsuitable for a high-security vault
+  **The Solution:** Switched to the **Web Cryptography API** (`window.crypto.getRandomValues`).  This ensures that the generated passwords leverage native device entropy, providing a CSPRNG (Cryptographically Secure Pseudorandom Number Generator) that meets industry security standards.
+
 ## ✨ Recent Feature Additions (Phase 2)
 
 * **Cryptographically Secure Generation (Offline):** A utility tab featuring a secure, offline password generator. It utilizes the Web Cryptography API (`window.crypto.getRandomValues`) for client-side unpredictability.
