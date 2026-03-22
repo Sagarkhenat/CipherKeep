@@ -9,7 +9,7 @@ import { addIcons } from 'ionicons';
 import { addOutline, trashOutline } from 'ionicons/icons';
 
 import { AuthService,SecureStorageService } from 'src/providers/providers';
-import { OnboardingComponent } from '../../onboarding/onboarding.component';
+import { OnboardingComponent } from '../onboarding/onboarding.component';
 @Component({
   selector: 'app-vault',
   templateUrl: './vault.component.html',

@@ -18,15 +18,9 @@ import { OnboardingComponent } from '../onboarding/onboarding.component';
   imports:[IonHeader,IonToolbar,IonTitle,IonContent,IonList,IonItem,IonListHeader,IonIcon,IonLabel]
 })
 export class SettingsComponent {
-  private alertController = inject(AlertController);
-  private toastController = inject(ToastController);
-  private authService = inject(AuthService);
-  private navCtrl = inject(NavController);
 
-  private secureStorage = inject(SecureStorageService);
-  private modalCtrl= inject(ModalController);
-
-  constructor() {
+  constructor(private alertController: AlertController, private toastController: ToastController, private authService: AuthService,
+    private navCtrl:NavController, private secureStorage:SecureStorageService,private modalCtrl: ModalController) {
     // We are adding the trash icon early so it is ready for the "Full Wipe" step
     addIcons({ keyOutline, trashOutline, shieldCheckmarkOutline,helpCircleOutline });
   }

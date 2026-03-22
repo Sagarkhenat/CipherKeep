@@ -21,8 +21,8 @@ import {
   ]
 })
 export class OnboardingComponent {
-  private modalCtrl = inject(ModalController);
-  constructor() {
+
+  constructor(private modalCtrl: ModalController) {
     addIcons({
       shieldCheckmarkOutline, fingerPrintOutline,
       keyOutline, flashOutline, trashOutline

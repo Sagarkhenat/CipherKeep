@@ -18,7 +18,6 @@ import { IonHeader, IonToolbar, IonTitle, IonButton,
     IonLabel, IonList,IonToggle]
 })
 export class GeneratorComponent {
-  private toastController = inject(ToastController);
 
   // Reactive State Signals
   passwordLength = signal<number>(16);
@@ -30,7 +29,7 @@ export class GeneratorComponent {
   generatedPassword = signal<string>('');
   errorMessage = signal<string>('');
 
-  constructor() {
+  constructor( private toastController: ToastController) {
     addIcons({ copyOutline, refreshOutline, warningOutline });
     this.generatePassword(); // Generate one immediately on load
   }

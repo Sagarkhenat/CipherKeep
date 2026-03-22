@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { IonContent, IonButton, IonIcon, AlertController } from '@ionic/angular/standalone';
+import { IonContent, IonButton, IonIcon, AlertController,ToastController } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { lockClosedOutline, fingerPrintOutline } from 'ionicons/icons';
 
@@ -17,14 +17,10 @@ import { BiometricAuth } from '@aparajita/capacitor-biometric-auth';
 })
 export class LockScreenComponent {
 
-  private authService = inject(AuthService);
-  private router = inject(Router);
-  private alertController = inject(AlertController);
-
   // State for the Error State UI placeholder
   biometricError = false;
 
-  constructor() {
+  constructor( private authService: AuthService, private router: Router, private alertController: AlertController,private toastController: ToastController) {
     // In standalone Ionic, icons must be registered explicitly
     addIcons({ lockClosedOutline, fingerPrintOutline });
   }
@@ -62,7 +58,7 @@ export class LockScreenComponent {
   }
 
   async useFallbackPin() {
-    console.log('Fallback PIN triggered');
+    console.log('Fallback PIN condition triggered, allow user to enter 4 digit PIN value');
     // We will wire up the Error State logic here later
 
     const hasPin = await this.authService.hasPinSet();
@@ -115,7 +111,7 @@ export class LockScreenComponent {
               this.router.navigate(['/tabs/vault']);
             } else {
               console.error('Invalid PIN entered');
-              // Optionally present a toast notification here for invalid attempts
+              this.showToast('Invalid PIN entered.', 'danger');
             }
             return true;
           }
@@ -123,5 +119,15 @@ export class LockScreenComponent {
       ]
     });
     await alert.present();
+  }
+
+    private async showToast(message: string, color: 'success' | 'danger') {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000,
+      color: color,
+      position: 'bottom'
+    });
+    await toast.present();
   }
 }
