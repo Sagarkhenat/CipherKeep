@@ -50,13 +50,13 @@ A major focus of this project is resilient error handling and graceful degradati
 
 ## 📱 App Screenshots
 
-| Lock Screen | Vault UI | Onboarding |
+| Lock Screen | Vault UI | Onboarding Screen |
 | :---: | :---: | :---: |
 | ![Lock Screen](app-screenshots/cipherkeep-lock-screen.jpg) | ![Vault](app-screenshots/cipherkeep-vault-screen.jpg) | ![Onboarding Modal](app-screenshots/cipherkeep-onboarding-screen.jpg) |
 
-| Vault Screen | Password Generator | Settings |
+| Vault Screen | Password Generator | Settings Scren |
 | :---: | :---: | :---: |
-| ![Vault Screen](app-screenshots\cipherkeep-secure-vault-screen.jpg) | ![Generator](app-screenshots/cipherkeep-lock-screen.jpg) | ![Settings](app-screenshots\ciperhkeep-settings-screen.jpg) |
+| ![Vault Screen](app-screenshots/cipherkeep-secure-vault-screen.jpg) | ![Generator](app-screenshots/cipherkeep-passwd-generator-screen.jpg) | ![Settings](app-screenshots/ciperhkeep-settings-screen.jpg) |
 
 ## 🚀 Getting Started
 
