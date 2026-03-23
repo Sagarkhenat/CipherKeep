@@ -48,10 +48,11 @@ A major focus of this project is resilient error handling and graceful degradati
   
 ## 📱 Application Preview
 
-![Lock Screen](app-screenshots/cipherkeep-lock-screen.jpg?raw=true "CipherKeep Lock Screen")
-![Enter Pin](app-screenshots/cipherkeep-enter-pin-screen.jpg?raw=true "CipherKeep Enter Pin Screen")
-![Onboarding](app-screenshots/cipherkeep-onboarding-screen.jpg?raw=true "CipherKeep Onboarding")
-![Vault](app-screenshots/cipherkeep-vault-screen.jpg?raw=true "Vault Screen")
+## 📱 App Screenshots
+
+| Lock Screen | Vault UI | Onboarding |
+| :---: | :---: | :---: |
+| ![Lock Screen](app-screenshots/cipherkeep-lock-screen.jpg) | ![Vault](app-screenshots/cipherkeep-vault-screen.jpg) | ![Onboarding](app-screenshots/cipherkeep-onboarding-screen.jpg) |
 
 ## 🚀 Getting Started
 
