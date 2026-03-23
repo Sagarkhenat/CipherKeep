@@ -48,8 +48,6 @@ A major focus of this project is resilient error handling and graceful degradati
   
 ## 📱 Application Preview
 
-## 📱 App Screenshots
-
 | Lock Screen | Vault UI | Onboarding Screen |
 | :---: | :---: | :---: |
 | ![Lock Screen](app-screenshots/cipherkeep-lock-screen.jpg) | ![Vault](app-screenshots/cipherkeep-vault-screen.jpg) | ![Onboarding Modal](app-screenshots/cipherkeep-onboarding-screen.jpg) |
