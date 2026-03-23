@@ -21,7 +21,6 @@ A major focus of this project is resilient error handling and graceful degradati
 * **Corrupted Data Protection:** Wraps all keystore read/write operations in robust `try/catch` blocks. If decryption fails due to corrupted keychain data, the app alerts the user gracefully without crashing.
 * **Route Protection:** A functional Angular 17 Route Guard   intercepts unauthorized navigation attempts to the internal tabs, ensuring the vault remains locked.
 
-### 🛠️ Proposed "Technical Challenges" Section
 
 ## 🧠 Technical Challenges & Solutions
 
@@ -43,15 +42,16 @@ A major focus of this project is resilient error handling and graceful degradati
 ## ✨ Recent Feature Additions (Phase 2)
 
 * **Cryptographically Secure Generation (Offline):** A utility tab featuring a secure, offline password generator. It utilizes the Web Cryptography API (`window.crypto.getRandomValues`) for client-side unpredictability.
-* **Clipboard Integration:** Integrate `@capacitor/clipboard` for easy copying of generated passwords natively.
+* **Clipboarntegration:** Integrate `@capacitor/clipboard` for easy copying of generated passwords natively.
 * **Settings & PIN Management:** Implement logic to update the fallback PIN directly through the device's preferences.
 * **The "Nuke" Feature (Full Local Wipe):** A critical security implementation in the Settings tab allows users to execute a Full Wipe. This destroys all secrets in the hardware keystore and clears local preferences, effectively resetting the app to a "zero-knowledge" state.
   
 ## 📱 Application Preview
 
-Secure Lock Screen      Vault Management            Secure Generator
-
-Biometric Prompt & PIN Fallback,  Hardware-Encrypted Secrets, CSPRNG Password Generation
+![Lock Screen](app-screenshots/cipherkeep-lock-screen.jpg?raw=true "CipherKeep Lock Screen")
+![Enter Pin](app-screenshots/cipherkeep-enter-pin-screen.jpg?raw=true "CipherKeep Enter Pin Screen")
+![Onboarding](app-screenshots/cipherkeep-onboarding-screen.jpg?raw=true "CipherKeep Onboarding")
+![Vault](app-screenshots/cipherkeep-vault-screen.jpg?raw=true "Vault Screen")
 
 ## 🚀 Getting Started
 
